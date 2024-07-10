@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "camp2ascii"
+version = "0.1.0"
+description = "Wrapper of C library for conversion of Campbell Scientific TOB1, TOB2, and TOB3 data files to ASCII formats"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Peter Ansell", email = "author@example.com" },
+    { name = "Paul inkenbrandt, email = "paulinkenbrandt@utah.gov"}
+]
+dependencies = ["pandas"]
+
+[project.urls]
+Homepage = "https://github.com/inkenbrandt/camp2ascii"
+Repository = "https://github.com/inkenbrandt/camp2ascii"
+
+[project.scripts]
+camp2ascii = "camp2ascii.converter:main"
+
+[tool.setuptools]
+packages = ["camp2ascii"]
+
+[tool.setuptools.package-data]
+camp2ascii = ["c_src/*"]
+
+[tool.setuptools.cmdclass]
+build_ext = { build_ext = "CustomBuildExtCommand" }
